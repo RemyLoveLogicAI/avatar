@@ -1,0 +1,89 @@
+{
+  "name": "Avatar IA - Plateforme d'Avatars OnlyFans",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.powershell",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.vscode-markdown",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "88"],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "files.associations": {
+          "*.json": "json",
+          "*.yaml": "yaml",
+          "*.yml": "yaml"
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [8188, 3000, 8000],
+  "portsAttributes": {
+    "8188": {
+      "label": "ComfyUI Web Interface",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "Development Server",
+      "onAutoForward": "silent"
+    },
+    "8000": {
+      "label": "API Server",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "remoteUser": "vscode",
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/ONLY/models,target=/workspaces/avatar-ia/ONLY/models,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/ONLY/outputs,target=/workspaces/avatar-ia/ONLY/outputs,type=bind,consistency=cached"
+  ],
+
+  "containerEnv": {
+    "PYTHONPATH": "/workspaces/avatar-ia/ONLY/ComfyUI",
+    "COMFYUI_PORT": "8188",
+    "COMFYUI_HOST": "0.0.0.0",
+    "TORCH_HOME": "/workspaces/avatar-ia/ONLY/models",
+    "HF_HOME": "/workspaces/avatar-ia/ONLY/models",
+    "TRANSFORMERS_CACHE": "/workspaces/avatar-ia/ONLY/models",
+    "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0"
+  },
+
+  "workspaceFolder": "/workspaces/avatar-ia",
+
+  "shutdownAction": "stopContainer"
+}

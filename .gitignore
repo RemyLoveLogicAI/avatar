@@ -1,0 +1,157 @@
+# Avatar IA - .gitignore pour Codespaces
+
+# ================================
+# ENVIRONNEMENTS VIRTUELS
+# ================================
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.local
+.env.*.local
+
+# ================================
+# MODÈLES IA (TROP VOLUMINEUX)
+# ================================
+ONLY/models/checkpoints/*.safetensors
+ONLY/models/checkpoints/*.ckpt
+ONLY/models/ipadapter/*.bin
+ONLY/models/vae/*.safetensors
+ONLY/models/controlnet/*.safetensors
+ONLY/models/animatediff/*.safetensors
+ONLY/models/upscale_models/*.pth
+ONLY/models/upscale_models/*.safetensors
+
+# ================================
+# OUTPUTS GÉNÉRÉS
+# ================================
+ONLY/outputs/images/*
+ONLY/outputs/video/*
+ONLY/outputs/audio/*
+ONLY/outputs/frames/*
+ONLY/outputs/pose/*
+!ONLY/outputs/images/.gitkeep
+!ONLY/outputs/video/.gitkeep
+!ONLY/outputs/audio/.gitkeep
+!ONLY/outputs/frames/.gitkeep
+!ONLY/outputs/pose/.gitkeep
+
+# ================================
+# CACHE PYTHON
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ================================
+# CACHE TORCH/TRANSFORMERS
+# ================================
+.cache/
+torch_cache/
+transformers_cache/
+huggingface_cache/
+
+# ================================
+# LOGS ET TEMPORAIRES
+# ================================
+*.log
+logs/
+temp/
+tmp/
+*.tmp
+*.temp
+
+# ================================
+# COMFYUI SPÉCIFIQUE
+# ================================
+ONLY/ComfyUI/output/*
+ONLY/ComfyUI/input/*
+ONLY/ComfyUI/temp/*
+ONLY/ComfyUI/user/*
+ONLY/ComfyUI/comfyui.log
+ONLY/ComfyUI/comfyui.pid
+
+# ================================
+# NODE.JS (SI UTILISÉ)
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ================================
+# IDE ET ÉDITEURS
+# ================================
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ================================
+# SYSTÈME
+# ================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ================================
+# CODESPACES
+# ================================
+.devcontainer/.env
+.devcontainer/.env.local
+
+# ================================
+# SENSIBLE/CONFIDENTIEL
+# ================================
+secrets/
+credentials/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# ================================
+# BACKUP ET ARCHIVES
+# ================================
+*.bak
+*.backup
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ================================
+# DOCUMENTATION GÉNÉRÉE
+# ================================
+docs/_build/
+site/
+_site/
