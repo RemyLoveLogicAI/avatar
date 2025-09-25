@@ -1,10 +1,25 @@
-# Avatar IA - Plateforme d'Avatars Automatisés
+# 🔥 Avatar IA - Plateforme d'Avatars OnlyFans Premium
 
-## Vue d'ensemble
+[![GitHub Codespaces](https://img.shields.io/badge/GitHub%20Codespaces-Ready-blue?logo=github&logoColor=white)](https://github.com/codespaces)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)](https://python.org)
+[![ComfyUI](https://img.shields.io/badge/ComfyUI-SDXL-green?logo=stable-diffusion&logoColor=white)](https://comfy.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Développement d'une **plateforme d'avatars IA automatisés** pour le marché du contenu adulte premium. Création d'un pipeline 100% local pour génération de contenu cohérent et personnalisé, optimisé pour monétisation sur plateformes comme OnlyFans. Développement d'un MVP commercial en 2-3 semaines avec un budget de 0€ (exécution 100% locale).
+> **Plateforme d'avatars IA automatisés pour le marché du contenu adulte premium**
 
-## Objectifs Commerciaux
+Développement d'une **plateforme d'avatars IA automatisés** pour le marché du contenu adulte premium. Création d'un pipeline 100% local pour génération de contenu cohérent et personnalisé, optimisé pour monétisation sur plateformes comme OnlyFans.
+
+## 🚀 Démarrage en 1 clic avec GitHub Codespaces
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?repo=Soynido/avatar-ia-onlyfans)
+
+### ⚡ Installation automatique
+1. **Cliquer sur "Open in GitHub Codespaces"** ci-dessus
+2. **Attendre l'installation** (~5-10 minutes)
+3. **Accéder à ComfyUI** : http://localhost:8188
+4. **Générer des avatars** : `./codespace-start.sh`
+
+## 💰 Objectifs Commerciaux
 
 - **50+ photos premium** plein-pied cohérentes (4+ tenues variées)
 - **2-3 clips vidéo** corps entier courts (5-10s) pour engagement
@@ -12,166 +27,203 @@ Développement d'une **plateforme d'avatars IA automatisés** pour le marché du
 - **Pipeline automatisé** pour production de masse
 - **Monétisation** sur plateformes de contenu adulte premium
 
-## Contraintes
+## 🎯 Styles d'Avatars OnlyFans
 
-- ✅ **Full local** : Aucun service cloud payant
-- ✅ **Conformité légale** : Avatar 100% IA, aucune personne réelle
-- ✅ **Budget 0€** : GPU personnel uniquement (M3 - Macbookpro)
-- ✅ **Équipe réduite** : 2 personnes maximum
-- ✅ **Délai serré** : 2-3 semaines pour MVP
+| Style | Description | Prompt Optimisé |
+|-------|-------------|-----------------|
+| **Casual Sexy** | Tenue décontractée séductrice | `casual outfit, tight jeans, crop top, natural beauty, seductive smile` |
+| **Lingerie Premium** | Lingerie de luxe | `luxury lingerie, silk, lace, premium quality, seductive pose` |
+| **Sporty Fit** | Tenue de sport attrayante | `sportswear, yoga pants, athletic body, confident pose` |
+| **Elegant Sophisticated** | Style élégant sophistiqué | `elegant dress, sophisticated style, luxury fashion, confident pose` |
+| **Intimate Bedroom** | Ambiance intimiste chambre | `intimate setting, bedroom, sensual pose, perfect body` |
 
-## Stack Technique (Mac M3 Optimisé)
+## 🛠️ Stack Technique
 
+### Core IA
 - **ComfyUI** : Moteur central avec support MPS
-- **Stable Diffusion 1.5** : Modèle principal (plus léger)
-- **SDXL** : Optionnel pour photos haute qualité (fp16, batch=1)
-- **IP-Adapter** : Cohérence visuelle (remplace LoRA local)
-- **AnimateDiff** : Génération vidéo (SD1.5, 5s max)
-- **ControlNet** : Poses et contrôle
-- **SadTalker** : Lipsync
-- **Piper/Coqui-TTS** : Synthèse vocale (CPU)
-- **FFmpeg** : Post-traitement
+- **Stable Diffusion XL (SDXL)** : Modèle principal haute qualité
+- **IP-Adapter FaceID** : Cohérence visuelle parfaite
+- **VAE FaceID** : Encodage/décodage optimisé
 
-## Structure du Projet
+### Infrastructure
+- **Python 3.11+** : Environnement principal
+- **PyTorch** : Framework IA (CPU/CUDA/MPS)
+- **GitHub Codespaces** : Environnement cloud
+- **Docker** : Containerisation (optionnel)
+
+## 📁 Structure du Projet
 
 ```
-.specify/
-├── memory/
-│   └── constitution.md      # Principes fondamentaux
-└── templates/
-    ├── plan-template.md     # Template de planification
-    ├── spec-template.md     # Template de spécifications
-    └── tasks-template.md    # Template de tâches
+avatar-ia-onlyfans/
+├── .devcontainer/              # Configuration Codespaces
+│   ├── devcontainer.json       # Container config
+│   ├── setup.sh               # Installation auto
+│   └── start.sh               # Démarrage rapide
+├── ONLY/
+│   ├── ComfyUI/               # Moteur IA principal
+│   ├── models/                # Modèles IA (15GB+)
+│   │   ├── checkpoints/       # SDXL Base & Refiner
+│   │   ├── ipadapter/         # IP-Adapter FaceID
+│   │   └── vae/               # VAE FaceID
+│   ├── outputs/               # Contenu généré
+│   │   ├── images/            # Photos avatars
+│   │   ├── video/             # Vidéos avatars
+│   │   └── audio/             # Audio + lipsync
+│   └── .specify/              # Scripts & workflows
+│       ├── memory/            # Documentation
+│       └── scripts/           # Automatisation
+└── CODESPACES.md              # Guide Codespaces
 ```
 
-## Constitution
+## 🎨 Génération d'Avatars
 
-Le projet est gouverné par une [constitution](./.specify/memory/constitution.md) qui établit :
-- 6 principes fondamentaux
-- Contraintes techniques et légales
-- Priorités de développement
-- Processus de gouvernance
+### Collection complète OnlyFans
+```bash
+# Générer 5 styles × 3 images = 15 avatars premium
+python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py
+```
 
-## Phases de Développement
+### Styles individuels
+```bash
+# Casual sexy (3 images)
+python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py --style casual_sexy --count 3
 
-### Phase 1 (Semaine 1) : Photos Cohérentes
-- Configuration ComfyUI + MPS (Metal Performance Shaders)
-- Configuration IP-Adapter pour cohérence
-- Pipeline génération photos (SD1.5 + SDXL optionnel)
-- 50+ photos avec 3-4 tenues
+# Lingerie premium (3 images)  
+python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py --style lingerie_premium --count 3
+```
 
-### Phase 2 (Semaine 2) : Vidéos Courtes
-- Intégration AnimateDiff (SD1.5, 5s max)
-- ControlNet pour poses
-- Génération 2-3 clips (5s chacun)
-- Post-traitement FFmpeg
+### Interface web ComfyUI
+```bash
+# Démarrer ComfyUI
+cd ONLY/ComfyUI && source .venv/bin/activate && python main.py --listen 0.0.0.0 --port 8188
 
-### Phase 3 (Semaine 3) : Audio et Lipsync
-- Configuration TTS local (CPU)
-- Intégration SadTalker
-- Pipeline lipsync complet
-- Documentation finale M3
+# Accéder à l'interface
+# http://localhost:8188
+```
 
-## Installation
+## 🔧 Installation Locale (Mac M3)
 
-> **Note** : Guide d'installation détaillé à venir dans la Phase 1
-
-### Prérequis (Mac M3)
+### Prérequis
 - Mac M3 (18GB RAM unifiée)
 - macOS 14.0+ (Sonoma ou plus récent)
 - 100GB+ stockage libre
-- Python 3.10+ avec Conda
+- Python 3.10+
 
-### Démarrage Rapide (Mac M3)
-
-#### Option 1 : Démarrage automatique complet
+### Démarrage rapide
 ```bash
 # Cloner le projet
-git clone [URL_REPO]
-cd avatar-ia
+git clone https://github.com/Soynido/avatar-ia-onlyfans.git
+cd avatar-ia-onlyfans
 
-# Démarrage automatique complet
+# Installation automatique complète
 ./quick_start.sh
-```
 
-#### Option 2 : Démarrage manuel étape par étape
-```bash
-# Cloner le projet
-git clone [URL_REPO]
-cd avatar-ia
-
-# Installation Miniconda
-curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
-bash Miniconda3-latest-MacOSX-arm64.sh
-
-# Environnement dédié
-conda create -n avatar-ia python=3.10
-conda activate avatar-ia
-
-# Installation PyTorch avec MPS
-pip install torch torchvision torchaudio
-
-# Configuration complète
+# Ou installation manuelle
 bash ONLY/.specify/scripts/bash/setup-plan.sh
-
-# Démarrage ComfyUI
-bash ONLY/.specify/scripts/bash/setup-plan.sh --start
-
-# Test du système
-bash ONLY/.specify/scripts/bash/setup-plan.sh --test-only
-
-# Nettoyage
-bash ONLY/.specify/scripts/bash/setup-plan.sh --cleanup
-
-# Statut
-bash ONLY/.specify/scripts/bash/setup-plan.sh --status
 ```
 
-## Utilisation
+## 📊 Spécifications Techniques
 
-### Génération de Photos (M3)
-```bash
-python generate_photos.py --count 50 --outfits 4 --device mps --batch-size 1
-```
+### Performance Mac M3
+- **Résolution** : 1024x1024 (qualité commerciale)
+- **Temps génération** : ~30-60s par image
+- **Mémoire** : 8-12GB RAM utilisée
+- **GPU** : MPS (Metal Performance Shaders)
 
-### Génération de Vidéos (M3)
-```bash
-python generate_videos.py --count 3 --duration 5 --device mps
-```
+### Performance Codespaces
+- **CPU** : Instances optimisées cloud
+- **RAM** : 8-32GB selon plan
+- **Stockage** : Volumes persistants pour modèles
+- **Coûts** : Facturation à l'usage
 
-### Synthèse Audio + Lipsync (M3)
-```bash
-python generate_audio.py --text "Hello world" --output audio.wav --device cpu
-python lipsync.py --audio audio.wav --video face.mp4 --device mps
-```
+## 🎯 Critères de Qualité
 
-## Documentation
+### Cohérence Visuelle
+- ✅ Avatar parfaitement reconnaissable entre images
+- ✅ Même visage, même corps, même style
+- ✅ Variations uniquement dans tenues/poses
 
-- [Constitution](./.specify/memory/constitution.md) - Principes et gouvernance
-- [Plan de Développement M3](./.specify/memory/plan-m3.md) - Roadmap détaillée Mac M3
-- [Spécifications M3](./.specify/memory/specs-m3.md) - Exigences techniques Mac M3
-- [Tâches M3](./.specify/memory/tasks-m3.md) - Liste des tâches optimisées M3
+### Qualité Commerciale
+- ✅ Résolution 1024x1024 maintenue
+- ✅ Détails du visage cohérents et attrayants
+- ✅ Qualité photographique professionnelle
+- ✅ Pas d'artefacts visuels majeurs
 
-## Contribution
+### Monétisation OnlyFans
+- ✅ Attrait visuel adapté au marché premium
+- ✅ Diversité des poses et tenues
+- ✅ Engagement utilisateur maximal
+- ✅ Contenu à forte valeur ajoutée
+
+## 📚 Documentation
+
+- **[Guide Codespaces](CODESPACES.md)** - Configuration complète cloud
+- **[Spécifications Techniques](ONLY/.specify/memory/specs.md)** - Détails techniques
+- **[Plan de Développement](ONLY/.specify/memory/plan.md)** - Roadmap détaillée
+- **[Tâches](ONLY/.specify/memory/tasks.md)** - Liste des tâches
+- **[Constitution](ONLY/.specify/memory/constitution.md)** - Principes du projet
+
+## 🤝 Contribution
 
 Ce projet suit les principes établis dans la constitution :
-- Respect de la localité absolue
-- Conformité légale stricte
-- Pragmatisme technique
-- Documentation obligatoire
+- ✅ Respect de la localité absolue
+- ✅ Conformité légale stricte
+- ✅ Pragmatisme technique
+- ✅ Documentation obligatoire
 
-## Licence
+### Workflow de développement
+1. Fork du repository
+2. Créer une branche feature
+3. Implémenter les modifications
+4. Tests et validation
+5. Pull Request vers main
 
-[À définir selon les contraintes légales du projet]
+## ⚖️ Conformité Légale
 
-## Support
+- ✅ **Avatar 100% IA** : Aucune personne réelle
+- ✅ **Contenu adulte** : Respect des plateformes
+- ✅ **Monétisation légale** : Conformité OnlyFans
+- ✅ **Propriété intellectuelle** : Modèles open source
 
-Pour toute question ou problème :
-1. Consulter la documentation
-2. Vérifier les issues existantes
-3. Créer une nouvelle issue avec les détails
+## 📞 Support
+
+### Ressources
+- [Issues GitHub](https://github.com/Soynido/avatar-ia-onlyfans/issues)
+- [Discussions](https://github.com/Soynido/avatar-ia-onlyfans/discussions)
+- [Documentation ComfyUI](https://docs.comfy.org/)
+
+### Problèmes courants
+1. **Codespace lent** : Redémarrer le container
+2. **Modèles non détectés** : Vérifier les permissions
+3. **Génération échoue** : Vérifier les logs ComfyUI
+4. **Ports fermés** : Redémarrer ComfyUI avec `0.0.0.0`
+
+## 📈 Roadmap
+
+### Phase 1 ✅ - Photos Premium
+- [x] Configuration ComfyUI + SDXL
+- [x] Pipeline génération photos
+- [x] 50+ photos avec 4+ tenues
+
+### Phase 2 🚧 - Vidéos Interactives  
+- [ ] Intégration AnimateDiff
+- [ ] Génération clips 5-10s
+- [ ] Post-traitement FFmpeg
+
+### Phase 3 📋 - Audio et Lipsync
+- [ ] Configuration TTS local
+- [ ] Intégration SadTalker
+- [ ] Pipeline lipsync complet
+
+## 📄 Licence
+
+[MIT License](LICENSE) - Voir le fichier LICENSE pour plus de détails.
 
 ---
 
-**Version :** 1.0.0  
-**Dernière mise à jour :** 2024-12-19
+**🔥 Avatar IA - Plateforme OnlyFans Premium**  
+**💰 Génération automatisée d'avatars monétisables**
+
+[![GitHub stars](https://img.shields.io/github/stars/Soynido/avatar-ia-onlyfans?style=social)](https://github.com/Soynido/avatar-ia-onlyfans/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Soynido/avatar-ia-onlyfans?style=social)](https://github.com/Soynido/avatar-ia-onlyfans/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Soynido/avatar-ia-onlyfans)](https://github.com/Soynido/avatar-ia-onlyfans/issues)
