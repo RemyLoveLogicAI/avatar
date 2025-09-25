@@ -7,6 +7,9 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
     }
   },
 
@@ -69,21 +72,21 @@
   "remoteUser": "vscode",
   
   "mounts": [
-    "source=${localWorkspaceFolder}/ONLY/models,target=/workspaces/avatar-ia/ONLY/models,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/ONLY/outputs,target=/workspaces/avatar-ia/ONLY/outputs,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/ONLY/models,target=/workspaces/avatar/ONLY/models,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/ONLY/outputs,target=/workspaces/avatar/ONLY/outputs,type=bind,consistency=cached"
   ],
 
   "containerEnv": {
-    "PYTHONPATH": "/workspaces/avatar-ia/ONLY/ComfyUI",
+    "PYTHONPATH": "/workspaces/avatar/ONLY/ComfyUI",
     "COMFYUI_PORT": "8188",
     "COMFYUI_HOST": "0.0.0.0",
-    "TORCH_HOME": "/workspaces/avatar-ia/ONLY/models",
-    "HF_HOME": "/workspaces/avatar-ia/ONLY/models",
-    "TRANSFORMERS_CACHE": "/workspaces/avatar-ia/ONLY/models",
+    "TORCH_HOME": "/workspaces/avatar/ONLY/models",
+    "HF_HOME": "/workspaces/avatar/ONLY/models",
+    "TRANSFORMERS_CACHE": "/workspaces/avatar/ONLY/models",
     "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0"
   },
 
-  "workspaceFolder": "/workspaces/avatar-ia",
+  "workspaceFolder": "/workspaces/avatar",
 
   "shutdownAction": "stopContainer"
 }
