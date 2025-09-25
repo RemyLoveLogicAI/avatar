@@ -106,7 +106,7 @@ intimate_bedroom:
 ## 📁 Structure du projet
 
 ```
-avatar-ia/
+avatar/
 ├── .devcontainer/           # Configuration Codespaces
 │   ├── devcontainer.json    # Configuration container
 │   ├── setup.sh            # Installation automatique

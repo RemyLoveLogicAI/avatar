@@ -11,7 +11,7 @@ Développement d'une **plateforme d'avatars IA automatisés** pour le marché du
 
 ## 🚀 Démarrage en 1 clic avec GitHub Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?repo=Soynido/avatar-ia-onlyfans)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?repo=Soynido/avatar)
 
 ### ⚡ Installation automatique
 1. **Cliquer sur "Open in GitHub Codespaces"** ci-dessus
@@ -54,7 +54,7 @@ Développement d'une **plateforme d'avatars IA automatisés** pour le marché du
 ## 📁 Structure du Projet
 
 ```
-avatar-ia-onlyfans/
+avatar/
 ├── .devcontainer/              # Configuration Codespaces
 │   ├── devcontainer.json       # Container config
 │   ├── setup.sh               # Installation auto
@@ -112,8 +112,8 @@ cd ONLY/ComfyUI && source .venv/bin/activate && python main.py --listen 0.0.0.0 
 ### Démarrage rapide
 ```bash
 # Cloner le projet
-git clone https://github.com/Soynido/avatar-ia-onlyfans.git
-cd avatar-ia-onlyfans
+git clone https://github.com/Soynido/avatar.git
+cd avatar
 
 # Installation automatique complète
 ./quick_start.sh
@@ -188,8 +188,8 @@ Ce projet suit les principes établis dans la constitution :
 ## 📞 Support
 
 ### Ressources
-- [Issues GitHub](https://github.com/Soynido/avatar-ia-onlyfans/issues)
-- [Discussions](https://github.com/Soynido/avatar-ia-onlyfans/discussions)
+- [Issues GitHub](https://github.com/Soynido/avatar/issues)
+- [Discussions](https://github.com/Soynido/avatar/discussions)
 - [Documentation ComfyUI](https://docs.comfy.org/)
 
 ### Problèmes courants
@@ -224,6 +224,6 @@ Ce projet suit les principes établis dans la constitution :
 **🔥 Avatar IA - Plateforme OnlyFans Premium**  
 **💰 Génération automatisée d'avatars monétisables**
 
-[![GitHub stars](https://img.shields.io/github/stars/Soynido/avatar-ia-onlyfans?style=social)](https://github.com/Soynido/avatar-ia-onlyfans/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Soynido/avatar-ia-onlyfans?style=social)](https://github.com/Soynido/avatar-ia-onlyfans/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/Soynido/avatar-ia-onlyfans)](https://github.com/Soynido/avatar-ia-onlyfans/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Soynido/avatar?style=social)](https://github.com/Soynido/avatar/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Soynido/avatar?style=social)](https://github.com/Soynido/avatar/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Soynido/avatar)](https://github.com/Soynido/avatar/issues)
