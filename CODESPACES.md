@@ -1,86 +1,86 @@
-# 🚀 Avatar IA - GitHub Codespaces
+# 🚀 AI Avatar - GitHub Codespaces
 
-## Vue d'ensemble
+## Overview
 
-Configuration complète pour exécuter la **Plateforme d'Avatars IA OnlyFans** dans GitHub Codespaces. Le projet est automatiquement configuré avec tous les composants nécessaires.
+Complete configuration for running the **OnlyFans AI Avatar Platform** in GitHub Codespaces. The project is automatically set up with all necessary components.
 
-## ⚡ Démarrage en 1 clic
+## ⚡ 1-Click Start
 
-1. **Créer un Codespace** : Cliquer sur le bouton "Code" → "Codespaces" → "Create codespace"
-2. **Attendre l'installation** : ~5-10 minutes (téléchargement modèles IA)
-3. **Accéder à l'interface** : http://localhost:8188 (ComfyUI)
-4. **Générer des avatars** : `python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py`
+1. **Create a Codespace** : Click the "Code" button → "Codespaces" → "Create codespace"
+2. **Wait for installation** : ~5-10 minutes (AI model download)
+3. **Access the interface** : http://localhost:8188 (ComfyUI)
+4. **Generate avatars** : `python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py`
 
-## 🔧 Configuration automatique
+## 🔧 Automatic Configuration
 
-### Composants installés
-- ✅ **Python 3.11** avec environnement virtuel
-- ✅ **PyTorch** (CPU optimisé pour Codespaces)
-- ✅ **ComfyUI** avec toutes les dépendances
-- ✅ **Modèles IA** : SDXL, IP-Adapter, VAE
-- ✅ **Extensions VS Code** : Python, Jupyter, Copilot
-- ✅ **Ports forwardés** : 8188 (ComfyUI), 3000 (Dev), 8000 (API)
+### Installed Components
+- ✅ **Python 3.11** with virtual environment
+- ✅ **PyTorch** (CPU optimized for Codespaces)
+- ✅ **ComfyUI** with all dependencies
+- ✅ **AI Models** : SDXL, IP-Adapter, VAE
+- ✅ **VS Code Extensions** : Python, Jupyter, Copilot
+- ✅ **Forwarded ports** : 8188 (ComfyUI), 3000 (Dev), 8000 (API)
 
-### Répertoires montés
-- `ONLY/models/` : Modèles IA (persistants)
-- `ONLY/outputs/` : Images/vidéos générées (persistants)
+### Mounted Directories
+- `ONLY/models/` : AI models (persistent)
+- `ONLY/outputs/` : Generated images/videos (persistent)
 
-## 📋 Commandes essentielles
+## 📋 Essential Commands
 
-### Démarrage rapide
+### Quick Start
 ```bash
-# Après ouverture du Codespace
+# After opening the Codespace
 ./codespace-start.sh
 ```
 
-### Génération d'avatars OnlyFans
+### OnlyFans Avatar Generation
 ```bash
-# Collection complète (5 styles × 3 images)
+# Full collection (5 styles × 3 images)
 python ONLY/.specify/scripts/python/generate_onlyfans_avatars.py
 
-# Styles disponibles :
-# - casual_sexy : Tenue décontractée séductrice
-# - lingerie_premium : Lingerie de luxe
-# - sporty_fit : Tenue de sport attrayante  
-# - elegant_sophisticated : Style élégant sophistiqué
-# - intimate_bedroom : Ambiance intimiste chambre
+# Available styles:
+# - casual_sexy : Casual seductive outfit
+# - lingerie_premium : Luxury lingerie
+# - sporty_fit : Attractive sportswear
+# - elegant_sophisticated : Elegant sophisticated style
+# - intimate_bedroom : Intimate bedroom ambiance
 ```
 
-### Gestion ComfyUI
+### ComfyUI Management
 ```bash
-# Démarrer ComfyUI manuellement
+# Start ComfyUI manually
 cd ONLY/ComfyUI && source .venv/bin/activate && python main.py --listen 0.0.0.0 --port 8188
 
-# Voir les logs
+# View logs
 tail -f ONLY/ComfyUI/comfyui.log
 
-# Arrêter ComfyUI
+# Stop ComfyUI
 kill $(cat ONLY/ComfyUI/comfyui.pid)
 ```
 
-### Scripts d'automatisation
+### Automation Scripts
 ```bash
-# Test système complet
+# Full system test
 bash ONLY/.specify/scripts/bash/setup-plan.sh --test-only
 
-# Statut du système
+# System status
 bash ONLY/.specify/scripts/bash/setup-plan.sh --status
 
-# Nettoyage
+# Cleanup
 bash ONLY/.specify/scripts/bash/setup-plan.sh --cleanup
 ```
 
-## 🌐 Accès web
+## 🌐 Web Access
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| **ComfyUI** | http://localhost:8188 | Interface principale de génération |
-| **Dev Server** | http://localhost:3000 | Serveur de développement |
-| **API Server** | http://localhost:8000 | API REST |
+| **ComfyUI** | http://localhost:8188 | Main generation interface |
+| **Dev Server** | http://localhost:3000 | Development server |
+| **API Server** | http://localhost:8000 | REST API |
 
-## 💰 Prompts OnlyFans Premium
+## 💰 Premium OnlyFans Prompts
 
-### Styles de contenu
+### Content Styles
 ```yaml
 casual_sexy:
   prompt: "beautiful woman, casual outfit, tight jeans, crop top, natural beauty, seductive smile, bedroom eyes, perfect body, high quality, professional photography, 8k resolution, sensual, alluring, attractive"
@@ -98,98 +98,98 @@ intimate_bedroom:
   prompt: "beautiful woman, intimate setting, bedroom, sensual pose, perfect body, seductive look, soft lighting, premium quality, professional photography, 8k resolution, alluring, exclusive"
 ```
 
-### Prompts négatifs (sécurité)
+### Negative Prompts (safety)
 ```
 "blurry, low quality, distorted, extra limbs, bad anatomy, watermark, text, deformed, ugly, underage, child, old, wrinkles"
 ```
 
-## 📁 Structure du projet
+## 📁 Project Structure
 
 ```
 avatar/
-├── .devcontainer/           # Configuration Codespaces
-│   ├── devcontainer.json    # Configuration container
-│   ├── setup.sh            # Installation automatique
-│   └── start.sh            # Démarrage rapide
+├── .devcontainer/           # Codespaces configuration
+│   ├── devcontainer.json    # Container configuration
+│   ├── setup.sh            # Automatic installation
+│   └── start.sh            # Quick start
 ├── ONLY/
-│   ├── ComfyUI/            # Moteur IA principal
-│   ├── models/             # Modèles IA (15GB+)
+│   ├── ComfyUI/            # Main AI engine
+│   ├── models/             # AI models (15GB+)
 │   │   ├── checkpoints/    # SDXL Base & Refiner
 │   │   ├── ipadapter/      # IP-Adapter FaceID
 │   │   └── vae/            # VAE FaceID
-│   ├── outputs/            # Contenu généré
-│   │   ├── images/         # Photos avatars
-│   │   ├── video/          # Vidéos avatars
+│   ├── outputs/            # Generated content
+│   │   ├── images/         # Avatar photos
+│   │   ├── video/          # Avatar videos
 │   │   └── audio/          # Audio + lipsync
 │   └── .specify/           # Scripts & workflows
 │       ├── memory/         # Documentation
-│       └── scripts/        # Automatisation
-└── codespace-start.sh      # Démarrage rapide
+│       └── scripts/        # Automation
+└── codespace-start.sh      # Quick start
 ```
 
-## 🔧 Dépannage
+## 🔧 Troubleshooting
 
-### ComfyUI ne démarre pas
+### ComfyUI won't start
 ```bash
-# Vérifier les logs
+# Check logs
 tail -f ONLY/ComfyUI/comfyui.log
 
-# Redémarrer
+# Restart
 kill $(cat ONLY/ComfyUI/comfyui.pid) 2>/dev/null || true
 ./codespace-start.sh
 ```
 
-### Modèles manquants
+### Missing models
 ```bash
-# Réinstaller les modèles
+# Reinstall models
 bash .devcontainer/setup.sh
 ```
 
-### Ports non accessibles
-- Vérifier que les ports sont forwardés dans l'onglet "Ports" de VS Code
-- ComfyUI doit écouter sur `0.0.0.0:8188` (pas `127.0.0.1`)
+### Ports not accessible
+- Check that ports are forwarded in the "Ports" tab of VS Code
+- ComfyUI must listen on `0.0.0.0:8188` (not `127.0.0.1`)
 
-## 💡 Optimisations Codespaces
+## 💡 Codespaces Optimizations
 
 ### Performance
-- **CPU** : Codespaces utilise des instances CPU optimisées
-- **RAM** : 8-32GB selon le plan (suffisant pour SDXL)
-- **Stockage** : Modèles montés en volumes persistants
+- **CPU** : Codespaces uses optimized CPU instances
+- **RAM** : 8-32GB depending on plan (sufficient for SDXL)
+- **Storage** : Models mounted as persistent volumes
 
-### Coûts
-- **Codespaces** : Facturation à l'usage (arrêt automatique)
-- **Modèles** : Téléchargement une seule fois (cache HuggingFace)
-- **Génération** : CPU local (pas de coûts cloud IA)
+### Costs
+- **Codespaces** : Usage-based billing (automatic shutdown)
+- **Models** : Downloaded only once (HuggingFace cache)
+- **Generation** : Local CPU (no AI cloud costs)
 
-## 🎯 Objectifs commerciaux
+## 🎯 Commercial Goals
 
-### Livrables attendus
-- ✅ **50+ photos premium** plein-pied cohérentes
-- ✅ **3-4 tenues différentes** (casual, lingerie, sporty, intimiste)
-- ✅ **Pipeline automatisé** pour production de masse
-- ✅ **Monétisation** sur plateformes OnlyFans premium
+### Expected Deliverables
+- ✅ **50+ premium photos** full-body consistent
+- ✅ **3-4 different outfits** (casual, lingerie, sporty, intimate)
+- ✅ **Automated pipeline** for mass production
+- ✅ **Monetization** on premium OnlyFans platforms
 
-### Critères de qualité
-- **Résolution** : 1024x1024 (qualité commerciale)
-- **Cohérence** : Avatar parfaitement reconnaissable
-- **Diversité** : Variété des poses et tenues
-- **Attrait** : Optimisé pour engagement utilisateur
+### Quality Criteria
+- **Resolution** : 1024x1024 (commercial quality)
+- **Consistency** : Avatar perfectly recognizable
+- **Diversity** : Variety of poses and outfits
+- **Appeal** : Optimized for user engagement
 
 ## 📞 Support
 
-### Ressources
-- [Documentation ComfyUI](https://docs.comfy.org/)
-- [Spécifications techniques](./ONLY/.specify/memory/specs.md)
-- [Plan de développement](./ONLY/.specify/memory/plan.md)
-- [Tâches détaillées](./ONLY/.specify/memory/tasks.md)
+### Resources
+- [ComfyUI Documentation](https://docs.comfy.org/)
+- [Technical specifications](./ONLY/.specify/memory/specs.md)
+- [Development plan](./ONLY/.specify/memory/plan.md)
+- [Detailed tasks](./ONLY/.specify/memory/tasks.md)
 
-### Problèmes courants
-1. **Codespace lent** : Redémarrer le container
-2. **Modèles non détectés** : Vérifier les permissions
-3. **Génération échoue** : Vérifier les logs ComfyUI
-4. **Ports fermés** : Redémarrer ComfyUI avec `0.0.0.0`
+### Common Issues
+1. **Slow Codespace** : Restart the container
+2. **Models not detected** : Check permissions
+3. **Generation fails** : Check ComfyUI logs
+4. **Ports closed** : Restart ComfyUI with `0.0.0.0`
 
 ---
 
-**🔥 Avatar IA - Plateforme OnlyFans Premium**  
-**💰 Génération automatisée d'avatars monétisables**
+**🔥 AI Avatar - Premium OnlyFans Platform**  
+**💰 Automated generation of monetizable avatars**
